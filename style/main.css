@@ -7093,6 +7093,8 @@ header {
     background-color: #113;
     color: #eee;
     font-size: 1.0em;
+    margin-top: 0;
+    margin-bottom: 0;
     box-shadow: -30px 0 #113, 30px 0 #113; }
     .article-head h2 a {
       color: #eee; }
@@ -7102,12 +7104,35 @@ header {
       .article-head h2 {
         font-size: 1.2em;
         box-shadow: -10px 0 #113, -15px 0 #fa3, -20px 0 #113, -25px 0 #af3, -30px 0 #113, -35px 0 #3af; } }
-  .article-head .post-date {
-    font-family: 'Press Start 2P', sans;
-    font-size: 11px;
-    position: absolute;
-    right: 0;
-    top: -15px; }
+
+h2 {
+  font-family: 'Press Start 2P', sans;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  padding-right: 10px;
+  background-color: #113;
+  color: #eee;
+  font-size: 1.0em;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  box-shadow: -30px 0 #113, 30px 0 #113; }
+  h2 a {
+    color: #eee; }
+    h2 a:hover {
+      color: #eee; }
+  @media screen and (min-width: 40em) {
+    h2 {
+      font-size: 1.2em;
+      box-shadow: -10px 0 #113, -15px 0 #fa3, -20px 0 #113, -25px 0 #af3, -30px 0 #113, -35px 0 #3af; } }
+
+.post-date {
+  font-family: 'Press Start 2P', sans;
+  font-size: 11px;
+  position: absolute;
+  right: 0;
+  top: -15px; }
 
 h3 {
   margin-top: 1.4em;
