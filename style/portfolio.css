@@ -12,6 +12,7 @@
    * 2. Prevent iOS and IE text size adjust after device orientation change,
    *    without disabling user zoom.
    */
+@import url("https://fonts.googleapis.com/css?family=Cambo|Playfair+Display|Playfair+Display+SC");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -1175,6 +1176,7 @@ h1,
 h2,
 h3,
 h4,
+#intro .subtitle,
 h5,
 h6,
 pre,
@@ -1210,6 +1212,7 @@ h1,
 h2,
 h3,
 h4,
+#intro .subtitle,
 h5,
 h6 {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
@@ -1223,7 +1226,7 @@ h6 {
   h1 small,
   h2 small,
   h3 small,
-  h4 small,
+  h4 small, #intro .subtitle small,
   h5 small,
   h6 small {
     color: #cacaca;
@@ -1238,7 +1241,7 @@ h2 {
 h3 {
   font-size: 1.1875rem; }
 
-h4 {
+h4, #intro .subtitle {
   font-size: 1.125rem; }
 
 h5 {
@@ -1254,7 +1257,7 @@ h6 {
     font-size: 2.5rem; }
   h3 {
     font-size: 1.9375rem; }
-  h4 {
+  h4, #intro .subtitle {
     font-size: 1.5625rem; }
   h5 {
     font-size: 1.25rem; }
@@ -3521,3 +3524,199 @@ table.hover tr:nth-of-type(even):hover {
 
 .clearfix::after {
   clear: both; }
+
+html {
+  overflow: hidden;
+  height: 100%; }
+
+body {
+  height: 100%;
+  overflow: auto; }
+
+body {
+  overflow-x: hidden;
+  background-image: url(../static/bgs/pattern_44.gif);
+  background-attachment: fixed; }
+
+#intro {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-style: solid;
+  border-width: 18px;
+  background-color: gold;
+  border-image: url(../static/bgs/doily.svg) 18 round;
+  -webkit-border-image: url(../static/bgs/doily.png) 18 round;
+  border-image-outset: 1;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+  @media screen and (min-width: 40em) {
+    #intro {
+      max-width: rem-calc(1200);
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      float: left;
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+      width: 50%;
+      float: left;
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+      margin-left: 25%; }
+      #intro::before, #intro::after {
+        content: ' ';
+        display: table; }
+      #intro::after {
+        clear: both; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    #intro {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  @media screen and (min-width: 40em) {
+      #intro:last-child:not(:first-child) {
+        float: right; }
+      #intro, #intro:last-child {
+        float: none; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    #intro {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  @media screen and (min-width: 40em) {
+      #intro:last-child:not(:first-child) {
+        float: right; }
+      #intro:last-child:last-child {
+        float: left; } }
+  #intro .subtitle {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    width: 80%;
+    border-top: solid #222 0.1rem;
+    margin-left: auto;
+    margin-right: auto; }
+  #intro h1 {
+    font-family: 'Playfair Display SC', serif;
+    text-align: center; }
+  #intro h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center; }
+
+.project {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 8px 3px #222;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem; }
+  @media screen and (min-width: 40em) {
+    .project {
+      max-width: rem-calc(1200);
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      float: left;
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+      width: 66.66667%;
+      float: left;
+      padding-left: 0.625rem;
+      padding-right: 0.625rem;
+      margin-left: 16.66667%; }
+      .project::before, .project::after {
+        content: ' ';
+        display: table; }
+      .project::after {
+        clear: both; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    .project {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  @media screen and (min-width: 40em) {
+      .project:last-child:not(:first-child) {
+        float: right; }
+      .project, .project:last-child {
+        float: none; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    .project {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  @media screen and (min-width: 40em) {
+      .project:last-child:not(:first-child) {
+        float: right; }
+      .project:last-child:last-child {
+        float: left; } }
+  .project .thumbnail.float-left {
+    margin-top: 0.4rem;
+    margin-right: 1.4rem;
+    margin-bottom: 1.4rem; }
+  .project .thumbnail {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .project h3 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    padding: 2rem; }
+  .project p {
+    font-family: 'Cambo', serif; }
+
+.leader {
+  background-image: url(../static/bgs/ricepaper2.png);
+  box-shadow: 0 0 8px 3px #222;
+  padding: 1em;
+  text-align: center;
+  padding: 1em; }
+  .leader p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-family: 'Cambo', serif;
+    text-align: left; }
+    @media screen and (min-width: 40em) {
+      .leader p {
+        max-width: rem-calc(1200);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        float: left;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        width: 66.66667%;
+        float: left;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        margin-left: 16.66667%; }
+        .leader p::before, .leader p::after {
+          content: ' ';
+          display: table; }
+        .leader p::after {
+          clear: both; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    .leader p {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+    @media screen and (min-width: 40em) {
+        .leader p:last-child:not(:first-child) {
+          float: right; }
+        .leader p, .leader p:last-child {
+          float: none; } }
+  @media screen and (min-width: 40em) and (min-width: 40em) {
+    .leader p {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+    @media screen and (min-width: 40em) {
+        .leader p:last-child:not(:first-child) {
+          float: right; }
+        .leader p:last-child:last-child {
+          float: left; } }
+  .leader h2 {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.2rem #613 solid;
+    font-family: 'Playfair Display SC', serif; }
+  .leader::before, .leader::after {
+    content: ' ';
+    display: table; }
+  .leader::after {
+    clear: both; }
