@@ -1,11 +1,138 @@
-<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style/clean.css"><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script><title>portfolio adam.tolley</title></head><body><h1>portfolio for adam tolley</h1>
-<p>I am working on a more complete portfolio currently;</p>
-<p>Until then, I present this fine, if slightly enigmatic, list of links:</p>
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style/portfolio.css"><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script><title>portfolio adam.tolley</title></head><body><div id="intro"><h1>Code &amp; Design</h1><div class="subtitle">A Portfolio for Adam Tolley</div></div><div id="projects"><div class="leader"><h2>Commercial Projects</h2></div><div class="project"><h3>Vogue Digital Archive Viewer</h3><div class="feature"><a href="http://nymag.com/thecut/2011/12/vogue-archive-site-live.html" target="_blank"><div class="frame"><img src="/static/figures/vogue-phi.png"></div></a><a href="http://nymag.com/thecut/2011/12/vogue-archive-site-live.html" target="_blank"><div class="caption">Read about it in NY Magazine</div></a></div><p>While at AIS I worked on a digital archive viewer for various Conde Nast
+publications.  Specifically I worked on new and improved features for Vogue
+Magazine's version of the viewer which required a more faceted search to
+expose rich metadata on the styles, topics, and artists tied to nearly every
+photograph and graphic in the publication.</p>
+<p>My most valuable contribution was a re-architecture of that search
+functionality, unifying various code paths that had accumulated through the
+maturation of the product focused javascript module. I employed disciplined
+approach to organizing code which eliminated duplication of effort,
+decoupled concerns, and established a single point of truth for searches and
+results.</p>
+<p>Using the <a href="http://amplifyjs.com/api/pubsub/">amplify.js core pub/sub</a>
+functionality, I restricted interaction with the search core to a simple
+publish and subscribe interface.  This way searches initiated from disparate
+user interactions provided by the application all followed the same work
+flow:</p>
+<ol>
+<li>The search is 'published' as an event the search service is subscribed
+to. 2. The search service proceeds, to validate, correct, and execute the
+search asynchronously with the 3rd party search provider. 3. Upon completion (
+or error ) of the search, the service would publish a search results message</li>
+<li>Downstream (subscribed) components would respond to the new search
+results as needed, and based on various states which were outside the
+concern of the main search module.</li>
+</ol>
+<p>The result was a more reliable search core, in which bugs and features could
+be reasoned about in isolation, and fixed/implemented in one code location.</p>
+<p>This was during a time where frameworks like Angular were still gaining
+traction, and redux was far from a buzzword in the front end development
+community.  I am proud that my solution to this problem shares many things
+in common with modern day approaches relied upon by thousands of developers.</p>
+</div><div class="project"><h3>Marriott Reservations Flow</h3><div class="feature"><a href="static/rate-list-menu.jpeg" target="_blank"><div class="frame"><img src="/static/figures/rate-list-phi.png"></div></a><a href="static/rate-list-menu.jpeg" target="_blank"><div class="caption">see larger</div></a></div><p>I contracted for about a year as a front-end developer working with
+the team that handled online reservations through the main website. I
+prototyped and implemented improvements to the hotel listing and
+details steps of the reservations workflow.</p>
+<p>Each change we made was based on extensive user research and the
+expertise of our UX department, then tested in the wild using A/B and
+multivariate strategies.  I would work very closely with the UX team,
+often in real time, to get the designs pixel-perfect to their vision.</p>
+<p>In order to to alleviate some dev-ops issues which were hindering
+development speed, I set up tooling to inject the variations we were
+developing directly into the page via a javascript bookmarklet.  This
+code was reused as part of the live, production testing whereby it
+interacted with our vendor CRO system.</p>
+<p>This work required a broad skill-set and the ability to communicate
+well between various technical disciplines.  I find such challenges
+rewarding, and well suited to my strengths.</p>
+</div><div class="leader"><h2>Blog &amp; Site</h2><p><a href="refactorized.github.io">refactorized.github.io</a> is in-part my laboratory and
+playground.  Here I can try out new or fun ideas and keep my
+skills sharp.  It is also a work in progress, so things like
+navigation are not always production ready, but I believe in getting
+good code out the door, and making it better as time affords.</p>
+<p>The site consists of simple static assets which are assembled by a
+gulp workflow, and hosted on github. The source lives in a <a href="https://github.com/refactorized/refactorized.github.io">GitHub
+repository</a>
+where the code for the following highlights can be examined.</p>
+</div><div class="project"><h3>The header</h3><p>A fun, if slightly excessive, animated header for the blog page, which
+utilizes css shadows and transitions to create an effect inspired by
+the title screens of old video games.</p>
+<p>Originally prototyped in <a href="http://codepen.io/refactorized/pen/yJqogw">this code
+pen</a>, the code has matured
+to use css transitions in between less-frequent DOM updates
+allowing the browser to optimize redraws.</p>
+<p>The vertical positioning of the shadows is modulated by a simple sine
+function, while the horizontal component is driven by the mouse position.</p>
+</div><div class="project"><h3>Custom Integration of Zurb Foundation</h3><p>The site uses <a href="http://foundation.zurb.com/">Zurb Foundation 6</a> as a
+base but modifies some aspects such as headers heavily.  It may have
+been easier to code the styling from scratch, but I wanted to explore
+strategies for integrating customizations atop the extensive
+framework.</p>
+<p>By using foundation's SASS files I was able to inject customizations
+and overrides without having to fork the repo.  Owing to the flexibility of
+the gulp build process, I am able to retain bower as the asset
+manager.</p>
+<p>I think this approach has made significant progress towards my goal of
+combining modern, rapid site development strategies with deeper
+customizations that can set sites apart from their archetypical peers.</p>
+</div><div class="project"><h3>Gulp</h3><p>I utilize gulp to build a static site from several asset types
+including markdown posts, pug templates, and SASS processed style sheets.</p>
+<p>Gulp's simple approach to manipulation of resources via chained
+transform stream appeals to my preference for functional paradigms.
+The abstraction works well enough for common tasks like template
+expansion but really shines with more complex scenarios. because
+gulpfiles are code, not configuration, simple transforms can be
+composed into specialized tasks in a very straightforward manner.</p>
+<p>One such task allows me to keep post assets in the same directory as
+the md file, but ensures they will be copied to the appropriate asset
+location during the build.  This, in turn, allows me to use whatever
+markdown editor I prefer without worrying about the eventual location
+of the published posts and assets.</p>
+<p>Another similar task normalizes urls for scripts and images based on
+a configured root path.  My implementation composes some common path
+logic with <a href="https://www.npmjs.com/package/gulp-cheerio">gulp-cheerio</a>
+which enables jQuery-like DOM transforms, sparing me from
+alternatives like complicated regex replacement.</p>
+<p>As I expand the site to include new functionalities, I continue to
+update the gulpfile accordingly.  There's a lot of room for growth
+and polish, but I find maintenance mostly easy and enjoyable.</p>
+</div><div class="leader"><h2>Demos, Prototypes &amp; Experiments</h2></div><div class="project"><h3>Micro Pub-Sub stopwatch</h3><div class="feature"><a href="https://jsfiddle.net/adamtolley/EcwdV/" target="_blank"><div class="frame"><img src="/static/figures/stopwatch-phi.png"></div></a><a href="https://jsfiddle.net/adamtolley/EcwdV/" target="_blank"><div class="caption">View the code on JSFiddle</div></a></div><p>A small javascript stopwatch demonstrating the publish / subscribe
+pattern and implementing <a href="https://gist.github.com/cowboy/661855">Ben Alman's tiny
+pub/sub</a> atop jQuery.  This
+small example illustrates the effective use of pub/sub to break up
+intertwined functionality into simple isolated concerns that minimize
+branching logic.</p>
+</div><div class="project"><h3>Angular Invoice UI</h3><div class="feature"><a href="http://codepen.io/refactorized/pen/YyWebQ" target="_blank"><div class="frame"><img src="/static/figures/numbers-phi.png"></div></a><a href="http://codepen.io/refactorized/pen/YyWebQ" target="_blank"><div class="caption">View the code on CodePen</div></a></div><p>A simple angular + bootstrap prototype for an invoicing view of an
+application I was developing internally.  The objective was to build a clean
+and immediately interactive interface for allocating portions of a contracts
+remaining budget.  Instantly updating fields, dynamic status indication and
+quick-fill buttons were employed to ease the workflow and eliminate extra
+page loads.</p>
+</div><div class="project"><h3>Pure CSS Arrows with ribbon / chevron tails</h3><div class="feature"><a href="http://codepen.io/refactorized/pen/DyLJI" target="_blank"><div class="frame"><img src="/static/figures/arrow-phi.png"></div></a><a href="http://codepen.io/refactorized/pen/DyLJI" target="_blank"><div class="caption">View the code on CodePen</div></a></div><p>Pure CSS ribbon-tailed arrows prototyped during my work with Marriott.
+Versions of arrows went into production on the main reservations pages.</p>
+</div><div class="project"><h3>CSS Icon buttons</h3><div class="feature"><a href="http://codepen.io/refactorized/pen/LVxvzE" target="_blank"><div class="frame"><img src="/static/figures/buttons-phi.png"></div></a><a href="http://codepen.io/refactorized/pen/LVxvzE" target="_blank"><div class="caption">View the code on CodePen</div></a></div><p>Icon buttons implemented in pure css with font-icons. This set is less
+minimal then I would prefer, but demonstrates some more advanced css
+techniques like inner shadows and linear gradients.</p>
+</div><div class="project"><h3>Swarmple</h3><div class="feature"><a href="http://codepen.io/refactorized/pen/EKrGQK" target="_blank"><div class="frame"><img src="/static/figures/swarmple-phi.png"></div></a><a href="http://codepen.io/refactorized/pen/EKrGQK" target="_blank"><div class="caption">View the code on CodePen</div></a></div><p>Swarmple ( a questionable portmanteau of swarm and simple) is a fun
+project designed to teach several concepts in JavaScript.  Including:</p>
 <ul>
-<li><a href="https://github.com/refactorized"> my github </a></li>
-<li><a href="http://codepen.io/refactorized/"> my code pen </a></li>
-<li><a href="https://jsfiddle.net/user/adamtolley/fiddles/"> my jsfiddle </a></li>
-<li><a href="http://refactorized.github.io/"> my blog </a></li>
-<li><a href="http://stackoverflow.com/users/174965/adam-tolley"> my stackoverflow</a></li>
+<li>canvas 2D</li>
+<li>simple particle systems</li>
+<li>collections</li>
+<li>vector math</li>
+<li>mouse interaction</li>
+<li>modeling velocity and acceleration in time intervals</li>
 </ul>
-<script>$(document).foundation();</script></body></html>
+<p>My favorite feature of this demonstration is the options object at the very
+beginning of the code. This invites experimentation by collecting the
+critical values of the simulation into one chunk of code which can be
+understood and altered by programmers of any level.  A huge variety of
+behavior can be realized by playing with these values alone, but further
+insight awaits the curious programmer who would explore the implementation.</p>
+</div><div class="project"><h3>Bezier Lab</h3><div class="feature"><a href="http://codepen.io/refactorized/pen/dMxeBb" target="_blank"><div class="frame"><img src="/static/figures/bezier-phi.png"></div></a><a href="http://codepen.io/refactorized/pen/dMxeBb" target="_blank"><div class="caption">View the code on CodePen</div></a></div><p>I find the math behind bezier curves beautifully simple, but a little
+difficult to explain succinctly.  This codepen illustrates the process of
+drawing fluid curves which are governed only by a series of related straight
+line segments.  Like the swarm example, it seeks to invite experimentation and
+interaction - though the code could use a little restructuring to increase
+accessibility.</p>
+</div><div class="reveal large" id="mariott-img" data-reveal><img src="/static/rate-list-menu.jpeg"><button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden>&times;</span></button></div><script>$(document).foundation();</script></div></body></html>
