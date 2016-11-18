@@ -3531,7 +3531,16 @@ a {
     color: #922;
     text-decoration: underline; }
 
+html {
+  overflow: hidden;
+  height: 100%; }
+
 body {
+  height: 100%;
+  overflow: auto;
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   font-family: 'Cambo', serif; }
 
 body {
